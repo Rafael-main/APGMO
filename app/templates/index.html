@@ -1,0 +1,51 @@
+{% extends 'master/master_layout.html' %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+<div class="uk-container-expand">
+    <div class="uk-container uk-container-expand uk-position-center">
+        <div class="uk-margin-top uk-margin-small-top">
+            <h1 class="uk-heading-divider">Password Generator</h1>
+            <div class="uk-margin-top">
+                <label for="password">Thy Password...</label>
+                <div class="uk-margin uk-flex uk-width-1-1">
+                    <div class="uk-inline uk-width-1-1">
+                        <a type="button" class="uk-form-icon uk-form-icon-flip" href="" uk-icon="icon: refresh"></a>
+                        <input name="password" id="password" class="uk-input" type="text" placeholder="Random Password">
+                    </div>
+                    <div>
+                        <button class="uk-button uk-button-primary" onclick="clickFunction()">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <form id="generate_my_pass">
+                <fieldset class="uk-fieldset">
+                    <div class="uk-margin">
+                        <label for="pass_length">Length</label>
+                        <input oninput="output_pass_length_id.value = pass_length.value" id="pass_length" name="pass_length"  class="uk-range" type="range" value="0" min="0" max="40" step="1">
+                        <output id="output_pass_length_id" for="pass_length" name="output_pass_length_id">0</output>
+                    </div>
+
+                    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                        <label><input name="alpha_caps" id="alpha_caps" class="uk-checkbox" type="checkbox" value="True" checked> Capital letters</label>
+                        <label><input name="alpha_noncaps" id="alpha_noncaps" class="uk-checkbox" type="checkbox" value="True" checked> Small letters</label>
+                        <label><input name="spec_char" id="spec_char" class="uk-checkbox" type="checkbox" value="True" checked> Special Characters</label>
+                        <label><input name="digits" id="digits" class="uk-checkbox" type="checkbox" value="True" checked> Numbers</label>
+                        
+                    </div>
+                    <div class="uk-margin">
+                        <button id="btn-submit" class="uk-button uk-button-primary uk-width-1-1">Generate Password</button>
+                    </div>
+            
+                </fieldset>
+            </form>
+        </div>
+     </div>
+</div>
+
+{% block script %}
+<script src="../static/js/index.js"></script>
+{% endblock %}
+
+{% endblock %}
