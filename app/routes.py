@@ -42,9 +42,15 @@ def gen_pass():
 
         if pass_len and pass_abc_caps and pass_abc_noncaps and pass_spec_char and pass_digits:
            strings = string.ascii_letters + string.digits + string.punctuation
+        if pass_len and pass_abc_caps and pass_abc_noncaps and pass_spec_char:
+            strings = string.ascii_letters + string.punctuation
+        elif pass_len and pass_abc_noncaps and pass_spec_char and pass_digits:
+            strings = string.ascii_lowercase + string.punctuation + string.digits
+        elif pass_len and pass_abc_noncaps and pass_spec_char and pass_digits:
+            strings = string.ascii_uppercase + string.punctuation + string.digits
 
         while True:
-            password = ''.join(secrets.choice(strings) for i in range(20))
+            password = ''.join(secrets.choice(strings) for i in range(pass_len))
             if (any(c.islower() for c in password)
                     and any(c.isalpha() for c in password)
                     and sum(c.isdigit() for c in password)):

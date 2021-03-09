@@ -1,1 +1,1 @@
-SECRET_KEY = 'OTEN'
+SECRET_KEY = 'hellokey'
