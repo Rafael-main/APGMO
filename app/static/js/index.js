@@ -11,13 +11,9 @@ async function handleForm(ev) {
 
   fd.append('api-key', 'myApiKey');
 
-  for (let key of fd.keys()) {
-    console.log(key, fd.get(key));
-  }
-
   let json_data = await convert2JSON(fd);
 
-  let url = 'http://localhost:5000/generate';
+  let url = 'https://pass-gen-001.herokuapp.com/generate';
   let h = new Headers();
   h.append('Content-type', 'application/json');
   let req = new Request(url, {
@@ -29,8 +25,6 @@ async function handleForm(ev) {
   fetch(req)
     .then((res) => res.json())
     .then((data) => {
-      console.log('Response from server');
-      console.log(data);
       document.getElementById('password').value = data.password
     })
     .catch(console.warn)
