@@ -18,8 +18,6 @@ def profile():
 def lets_go():
     req = request.get_json()
 
-    print(req)
-
     res = make_response(jsonify({"message": "OK"}), 200)
 
     return res
